@@ -1,0 +1,60 @@
+diff -Naur iptraf-3.0.0/src/hostmon.c iptraf-3.0.0a/src/hostmon.c
+--- iptraf-3.0.0/src/hostmon.c	2005-09-13 01:42:54.000000000 -0500
++++ iptraf-3.0.0a/src/hostmon.c	2015-02-04 10:38:27.927640135 -0600
+@@ -31,7 +31,7 @@
+ #include <linux/if_packet.h>
+ #include <linux/if_ether.h>
+ #include <linux/if_fddi.h>
+-#include <linux/if_tr.h>
++#include <netinet/if_tr.h>
+ #include <net/if_arp.h>
+ #include <stdlib.h>
+ #include <time.h>
+diff -Naur iptraf-3.0.0/src/othptab.c iptraf-3.0.0a/src/othptab.c
+--- iptraf-3.0.0/src/othptab.c	2005-09-13 01:42:54.000000000 -0500
++++ iptraf-3.0.0a/src/othptab.c	2015-02-04 10:38:27.941639836 -0600
+@@ -18,7 +18,7 @@
+ 
+ #include <asm/types.h>
+ #include <linux/if_ether.h>
+-#include <linux/if_tr.h>
++#include <netinet/if_tr.h>
+ #include <linux/if_fddi.h>
+ #include <winops.h>
+ #include "arphdr.h"
+diff -Naur iptraf-3.0.0/src/packet.c iptraf-3.0.0a/src/packet.c
+--- iptraf-3.0.0/src/packet.c	2005-09-13 01:42:54.000000000 -0500
++++ iptraf-3.0.0a/src/packet.c	2015-02-04 10:38:27.942639814 -0600
+@@ -36,7 +36,7 @@
+ #include <linux/if_packet.h>
+ #include <linux/if_ether.h>
+ #include <linux/if_fddi.h>
+-#include <linux/if_tr.h>
++#include <netinet/if_tr.h>
+ #include <linux/isdn.h>
+ #include <linux/sockios.h>
+ #include <msgboxes.h>
+diff -Naur iptraf-3.0.0/src/tcptable.h iptraf-3.0.0a/src/tcptable.h
+--- iptraf-3.0.0/src/tcptable.h	2005-09-13 01:42:54.000000000 -0500
++++ iptraf-3.0.0a/src/tcptable.h	2015-02-04 10:38:27.950639643 -0600
+@@ -23,7 +23,7 @@
+ #include <linux/if_packet.h>
+ #include <linux/if_ether.h>
+ #include <linux/if_fddi.h>
+-#include <linux/if_tr.h>
++#include <netinet/if_tr.h>
+ #include <net/if.h>
+ #include <netinet/ip.h>
+ #include <netinet/udp.h>
+diff -Naur iptraf-3.0.0/src/tr.c iptraf-3.0.0a/src/tr.c
+--- iptraf-3.0.0/src/tr.c	2005-09-13 01:42:54.000000000 -0500
++++ iptraf-3.0.0a/src/tr.c	2015-02-04 10:38:27.951639622 -0600
+@@ -7,7 +7,7 @@
+  */
+ 
+ #include <asm/types.h>
+-#include <linux/if_tr.h>
++#include <netinet/if_tr.h>
+ #include <netinet/in.h>
+ 
+ unsigned int get_tr_ip_offset(unsigned char *pkt)

@@ -1,0 +1,58 @@
+--- iptraf-3.0.0/src/Makefile	2005-09-13 04:11:17.000000000 -0500
++++ iptraf-3.0.0a/src/Makefile	2015-03-03 14:45:30.199879206 -0600
+@@ -31,7 +31,7 @@
+ # options to be passed to the compiler.  I don't believe they need to be
+ # modified (except for -m486 on non-Intel x86 platforms).
+ 
+-CFLAGS		= -Wall #-O2 #-m486
++#CFLAGS		= -Wall #-O2 #-m486
+ DIRS		= -DWORKDIR=\"$(WORKDIR)\" \
+ 		  -DLOGDIR=\"$(LOGDIR)\" -DEXECDIR=\"$(TARGET)\"
+ LDOPTS		= #-static
+@@ -68,17 +68,17 @@
+ # installation target directory.  The iptraf and rvnamed programs get
+ # stored here.  iptraf also exec's rvnamed from this directory.
+ 
+-TARGET		= /usr/local/bin
++TARGET		= $(BUILDROOT)/bin
+ 
+ # The IPTraf working directory; if you change this.  Starting with this
+ # version, this definition overrides dirs.h.
+ 
+-WORKDIR		= /var/local/iptraf
++WORKDIR		= $(BUILDROOT)/var/local/iptraf
+ 
+ # The IPTraf log file directory.  IPTraf log files are placed here.
+ # This definition overrides dirs.h
+ 
+-LOGDIR		= /var/log/iptraf
++LOGDIR		= $(BUILDROOT)/var/log/iptraf
+ 
+ #
+ # IPTraf lock file directory.  This is /var/run/iptraf/ and will not
+@@ -89,7 +89,7 @@
+ # DO NOT MAKE THIS POINT TO AN EXISTING/SYSTEM DIRECTORY!!!!  THE
+ # LOCK OVERRIDE (iptraf -f) WILL ERASE FILES HERE!
+ #*****************************************************************
+-LOCKDIR		= /var/run/iptraf
++LOCKDIR		= $(BUILDROOT)/var/run/iptraf
+ 
+ #####################################################################
+ ############### IPTRAF COMPILATION AND LINK RULES
+@@ -145,7 +145,15 @@
+ # installation rule
+ 
+ install:
+-	@./install.sh $(TARGET) $(WORKDIR) $(LOGDIR) $(LOCKDIR)
++	mkdir -p $(TARGET)
++	mkdir -p $(WORKDIR)
++	mkdir -p $(LOGDIR)
++	mkdir -p $(LOCKDIR)
++	install -m 0700 -s iptraf $(TARGET)
++	install -m 0700 -s rvnamed $(TARGET)
++	install -m 0700 -d $(WORKDIR)
++	install -m 0700 -d $(LOGDIR)
++	install -m 0700 -d $(LOCKDIR)
+ 
+ # Upgrade rule
+ #
