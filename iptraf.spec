@@ -4,7 +4,7 @@
 #
 Name     : iptraf
 Version  : 3.0.0
-Release  : 6
+Release  : 7
 URL      : ftp://iptraf.seul.org/pub/iptraf/iptraf-3.0.0.tar.gz
 Source0  : ftp://iptraf.seul.org/pub/iptraf/iptraf-3.0.0.tar.gz
 Summary  : No detailed summary available
@@ -37,17 +37,25 @@ bin components for the iptraf package.
 %patch2 -p1
 
 %build
-make V=1 %{?_smp_mflags} -C src
+pushd src
+make V=1  %{?_smp_mflags}
+popd
 
 %install
 rm -rf %{buildroot}
-cd src
+pushd src
 %make_install
+popd
+## make_install_append content
+mkdir -p %{buildroot}/usr
+mv %{buildroot}/bin %{buildroot}/usr/bin
+chmod a+x %{buildroot}/usr/bin
+## make_install_append end
 
 %files
 %defattr(-,root,root,-)
 
 %files bin
 %defattr(-,root,root,-)
-/bin/iptraf
-/bin/rvnamed
+/usr/bin/iptraf
+/usr/bin/rvnamed
