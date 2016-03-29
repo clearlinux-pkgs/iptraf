@@ -1,0 +1,25 @@
+From 69749765afaf2ddde46fc7f5a19b287aaa160244 Mon Sep 17 00:00:00 2001
+From: "Teran Ochoa, Salvador" <salvador.teran.ochoa@intel.com>
+Date: Tue, 29 Mar 2016 17:04:24 -0600
+Subject: [PATCH iptraf] change perms to /usr/bin files
+
+Signed-off-by: Teran Ochoa, Salvador <salvador.teran.ochoa@intel.com>
+---
+ iptraf.spec | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/iptraf.spec b/iptraf.spec
+index 0bb7e24..e74c6f3 100644
+--- a/iptraf.spec
++++ b/iptraf.spec
+@@ -56,6 +56,6 @@ chmod a+x %{buildroot}/usr/bin
+ %defattr(-,root,root,-)
+ 
+ %files bin
+-%defattr(-,root,root,-)
++%defattr(755,root,root,-)
+ /usr/bin/iptraf
+ /usr/bin/rvnamed
+-- 
+2.5.0
+
