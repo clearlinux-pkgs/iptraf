@@ -4,7 +4,7 @@
 #
 Name     : iptraf
 Version  : 3.0.0
-Release  : 10
+Release  : 11
 URL      : ftp://iptraf.seul.org/pub/iptraf/iptraf-3.0.0.tar.gz
 Source0  : ftp://iptraf.seul.org/pub/iptraf/iptraf-3.0.0.tar.gz
 Summary  : No detailed summary available
