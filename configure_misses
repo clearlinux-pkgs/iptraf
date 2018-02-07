@@ -1,0 +1,5 @@
+Configure miss: othptab.c:338:13: warning: format not a string literal and no format arguments [-Wformat-security]
+
+Configure miss: othptab.c:357:33: warning: format not a string literal and no format arguments [-Wformat-security]
+
+Configure miss: othptab.c:424:13: warning: format not a string literal and no format arguments [-Wformat-security]
