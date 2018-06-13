@@ -5,7 +5,7 @@
  # modified (except for -m486 on non-Intel x86 platforms).
  
 -CFLAGS		= -Wall #-O2 #-m486
-+#CFLAGS		= -Wall #-O2 #-m486
++CFLAGS		:= -Wall #-O2 #-m486
  DIRS		= -DWORKDIR=\"$(WORKDIR)\" \
  		  -DLOGDIR=\"$(LOGDIR)\" -DEXECDIR=\"$(TARGET)\"
  LDOPTS		= #-static

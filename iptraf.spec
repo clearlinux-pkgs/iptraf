@@ -46,7 +46,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 export SOURCE_DATE_EPOCH=1517970662
 pushd src
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} V=1 CFLAGS="$CFLAGS"
 popd
 
 %install
